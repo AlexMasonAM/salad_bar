@@ -1,0 +1,23 @@
+<h2>Ingredients</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Food Group</th> 
+    <th>Quantity</th>
+    <th>Unit</th>
+    <th>Price/Unit</th>
+  </tr>
+
+  <% @ingredients.each do |ingredient| %>
+    <tr>
+      <td><%= ingredient.name %></td>
+      <td><%= ingredient.food_group %></td>
+      <td><%= ingredient.quantity %></td>
+      <td><%= ingredient.unit %></td>
+      <td><%= ingredient.price_per_unit %></td>
+    </tr>
+  <% end %>   
+</table>
+
+<%= link_to "Add a New Ingredient", new_ingredient_path %>
