@@ -26,4 +26,24 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def edit
+    @ingredient = Ingredient.find(params[:id])
+  end
+
+  def update
+    @ingredient = Ingredient.find(params[:id])
+      if @ingredient.update_attributes(params.require(:ingredient).permit(:name, :food_group, :quantity, :unit, :price_per_unit))
+          redirect_to ingredients_path
+      else
+        render "edit"
+      end 
+  end
+
+  def destroy
+    @ingredient = Ingredient.find(params[:id])
+    @ingredient.destroy
+    redirect_to ingredients_path
+  end
+
+
 end

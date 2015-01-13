@@ -15,8 +15,13 @@
       <td><%= ingredient.food_group %></td>
       <td><%= ingredient.quantity %></td>
       <td><%= ingredient.unit %></td>
-      <td><%= ingredient.price_per_unit %></td>
+      <td>$<%= ingredient.price_per_unit %></td>
+      <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
+      <td><%= button_to 'X', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      
     </tr>
+
+
   <% end %>   
 </table>
 
